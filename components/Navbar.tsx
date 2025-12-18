@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppView } from '../types';
+import { AppView } from '../types.ts';
 import { Terminal, BookOpen } from 'lucide-react';
 
 interface NavbarProps {
@@ -26,8 +26,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView }) => 
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          <Terminal size={16} />
-          <span>先锋计划</span>
+          <span className="flex items-center gap-2">
+            <Terminal size={16} />
+            <span>先锋计划</span>
+          </span>
         </button>
         <button
           onClick={() => onChangeView(AppView.CURRICULUM)}
@@ -37,8 +39,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView }) => 
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          <BookOpen size={16} />
-          <span>课程体系</span>
+          <span className="flex items-center gap-2">
+            <BookOpen size={16} />
+            <span>课程体系</span>
+          </span>
         </button>
       </div>
     </nav>
