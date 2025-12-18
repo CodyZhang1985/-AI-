@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppView } from '../types.ts';
+import { AppView } from '../types';
 import { Terminal, BookOpen } from 'lucide-react';
 
 interface NavbarProps {

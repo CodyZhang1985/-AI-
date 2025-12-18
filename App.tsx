@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Navbar } from './components/Navbar.tsx';
-import { PlanView } from './components/PlanView.tsx';
-import { CurriculumView } from './components/CurriculumView.tsx';
-import { AppView } from './types.ts';
+import { Navbar } from './components/Navbar';
+import { PlanView } from './components/PlanView';
+import { CurriculumView } from './components/CurriculumView';
+import { AppView } from './types';
 
 function App() {
   const [currentView, setCurrentView] = useState<AppView>(AppView.PLAN);

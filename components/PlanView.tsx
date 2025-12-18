@@ -13,8 +13,8 @@ import {
   Swords,
   Network
 } from 'lucide-react';
-import { Section } from './ui/Section.tsx';
-import { TechCard } from './ui/TechCard.tsx';
+import { Section } from './ui/Section';
+import { TechCard } from './ui/TechCard';
 import { 
   Radar, 
   RadarChart, 
@@ -72,7 +72,7 @@ export const PlanView: React.FC = () => {
         </div>
       </section>
 
-      {/* Redesigned 5 Forces */}
+      {/* Forces Section */}
       <Section className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">计划背景：新能力时代的<span className="text-gradient">五力升级</span></h2>
@@ -120,7 +120,7 @@ export const PlanView: React.FC = () => {
         </div>
       </Section>
 
-      {/* Narrative Section */}
+      {/* Concept Section */}
       <Section className="container mx-auto px-4 py-16 relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-card to-transparent">
         <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 rounded-full blur-[100px]"></div>
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -149,7 +149,7 @@ export const PlanView: React.FC = () => {
         </div>
       </Section>
 
-      {/* Profiling */}
+      {/* Profiling Section */}
       <Section className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
