@@ -87,16 +87,12 @@ const phases = [
   }
 ];
 
-// --- Enhanced Visualization Components ---
-
-// Phase 1: Neural Network Topology (Enhanced)
+// Phase 1: Neural Network Topology
 const NeuralViz = () => (
   <div className="w-full h-full relative flex items-center justify-center overflow-hidden bg-black/40">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"></div>
-    {/* Grid Background */}
     <div className="absolute inset-0 bg-[linear-gradient(rgba(0,243,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
     
-    {/* SVG Container - using percentage width/height to fill container */}
     <div className="w-full h-full p-8 flex items-center justify-center">
       <svg className="w-full h-full" viewBox="0 0 500 350" preserveAspectRatio="xMidYMid meet">
         <defs>
@@ -109,15 +105,12 @@ const NeuralViz = () => (
           </filter>
         </defs>
         
-        {/* Connection Lines */}
         <g stroke="rgba(0, 243, 255, 0.15)" strokeWidth="1">
-          {/* L1 -> L2 */}
           {[60, 140, 220, 300].map(y1 => 
             [100, 180, 260].map(y2 => 
               <line key={`l1-${y1}-${y2}`} x1="100" y1={y1} x2="250" y2={y2} />
             )
           )}
-          {/* L2 -> L3 */}
           {[100, 180, 260].map(y1 => 
             [80, 180, 280].map(y2 => 
               <line key={`l2-${y1}-${y2}`} x1="250" y1={y1} x2="400" y2={y2} />
@@ -125,7 +118,6 @@ const NeuralViz = () => (
           )}
         </g>
 
-        {/* Nodes Layer 1 (Input) */}
         <g>
           <text x="100" y="30" fill="#00f3ff" fontSize="12" textAnchor="middle" opacity="0.7" fontFamily="monospace">INPUT_LAYER</text>
           {[60, 140, 220, 300].map((y, i) => (
@@ -136,7 +128,6 @@ const NeuralViz = () => (
           ))}
         </g>
 
-        {/* Nodes Layer 2 (Hidden) */}
         <g>
           <text x="250" y="50" fill="#00f3ff" fontSize="12" textAnchor="middle" opacity="0.7" fontFamily="monospace">HIDDEN_LAYER</text>
           {[100, 180, 260].map((y, i) => (
@@ -144,7 +135,6 @@ const NeuralViz = () => (
           ))}
         </g>
 
-        {/* Nodes Layer 3 (Output) */}
         <g>
           <text x="400" y="40" fill="#00f3ff" fontSize="12" textAnchor="middle" opacity="0.7" fontFamily="monospace">PROBABILITIES</text>
           {[80, 180, 280].map((y, i) => (
@@ -156,7 +146,6 @@ const NeuralViz = () => (
           ))}
         </g>
 
-        {/* Animated Packets */}
         <circle r="3" fill="#fff">
           <animateMotion dur="2s" repeatCount="indefinite" path="M100,140 L250,180" />
         </circle>
@@ -176,10 +165,9 @@ const NeuralViz = () => (
   </div>
 );
 
-// Phase 2: Arsenal Dashboard (Enhanced)
+// Phase 2: Arsenal Dashboard
 const ArsenalViz = () => (
   <div className="w-full h-full relative flex flex-col bg-surface-dark border-l border-r border-neon-blue/20">
-     {/* Header Status Bar */}
      <div className="h-10 border-b border-neon-blue/20 bg-neon-blue/5 flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
            <Terminal size={14} className="text-neon-blue" />
@@ -192,11 +180,9 @@ const ArsenalViz = () => (
         </div>
      </div>
 
-     {/* Main Content Area */}
      <div className="flex-1 p-4 grid grid-cols-2 gap-3 overflow-hidden relative">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,102,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,102,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
         
-        {/* Tool Card 1 */}
         <div className="bg-surface-dark border border-neon-blue/30 rounded p-3 relative group hover:bg-neon-blue/5 transition-colors">
            <div className="flex justify-between mb-2">
               <Server size={18} className="text-neon-blue" />
@@ -209,7 +195,6 @@ const ArsenalViz = () => (
            </div>
         </div>
 
-        {/* Tool Card 2 */}
         <div className="bg-surface-dark border border-neon-blue/30 rounded p-3 relative group hover:bg-neon-blue/5 transition-colors">
            <div className="flex justify-between mb-2">
               <Workflow size={18} className="text-neon-blue" />
@@ -222,7 +207,6 @@ const ArsenalViz = () => (
            </div>
         </div>
 
-        {/* Tool Card 3 */}
         <div className="bg-surface-dark border border-neon-blue/30 rounded p-3 relative group hover:bg-neon-blue/5 transition-colors">
            <div className="flex justify-between mb-2">
               <Brain size={18} className="text-neon-blue" />
@@ -233,7 +217,6 @@ const ArsenalViz = () => (
            <div className="text-[10px] text-neon-blue font-mono border border-neon-blue/30 px-1 py-0.5 inline-block rounded">API_READY</div>
         </div>
 
-         {/* Tool Card 4 */}
         <div className="bg-surface-dark border border-neon-blue/30 rounded p-3 relative group hover:bg-neon-blue/5 transition-colors">
            <div className="flex justify-between mb-2">
               <Code size={18} className="text-neon-blue" />
@@ -246,39 +229,29 @@ const ArsenalViz = () => (
         </div>
      </div>
 
-     {/* Footer Console Log */}
      <div className="h-24 bg-black/40 border-t border-neon-blue/20 p-3 font-mono text-[10px] text-neon-blue/80 overflow-hidden leading-relaxed relative">
         <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-black/20 to-transparent"></div>
-        <div>> init_system_check... OK</div>
-        <div>> loading_model_weights [==========] 100%</div>
-        <div>> connecting_to_vector_store... OK</div>
-        <div className="text-green-400">> system_ready_for_deployment</div>
-        <div className="animate-pulse">> _</div>
+        <div>{">"} init_system_check... OK</div>
+        <div>{">"} loading_model_weights [==========] 100%</div>
+        <div>{">"} connecting_to_vector_store... OK</div>
+        <div className="text-green-400">{">"} system_ready_for_deployment</div>
+        <div className="animate-pulse">{">"} _</div>
      </div>
   </div>
 );
 
-// Phase 3: Workflow Node Graph (Refined)
+// Phase 3: Workflow Node Graph
 const WorkflowViz = () => (
   <div className="w-full h-full relative bg-[#0a0a0a] overflow-hidden flex font-sans">
-    {/* Background Pattern */}
     <div className="absolute inset-0 bg-[radial-gradient(#2a2a2a_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
 
-    {/* Left Side: Graph Area (Expanded) */}
     <div className="w-3/4 relative p-6 flex flex-col justify-between z-10">
-        {/* SVG Connections - Absolute to this container */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-             {/* Path: User -> Agent */}
              <path d="M 50% 15% L 50% 35%" stroke="#4b5563" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
-             
-             {/* Path: Agent -> Tools (Split) */}
              <path d="M 50% 55% C 50% 65%, 20% 65%, 20% 75%" stroke="#bc13fe" strokeWidth="2" fill="none" strokeDasharray="4 4" className="animate-pulse" />
              <path d="M 50% 55% C 50% 65%, 80% 65%, 80% 75%" stroke="#bc13fe" strokeWidth="2" fill="none" strokeDasharray="4 4" className="animate-pulse" />
-
-             {/* Path: Tools -> Output */}
              <path d="M 20% 85% C 20% 90%, 50% 90%, 50% 95%" stroke="#4b5563" strokeWidth="2" fill="none" opacity="0.5" />
              <path d="M 80% 85% C 80% 90%, 50% 90%, 50% 95%" stroke="#4b5563" strokeWidth="2" fill="none" opacity="0.5" />
-             
              <defs>
                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
                  <polygon points="0 0, 10 3.5, 0 7" fill="#4b5563" />
@@ -286,7 +259,6 @@ const WorkflowViz = () => (
              </defs>
         </svg>
 
-        {/* Top: User Input */}
         <div className="flex justify-center z-10 h-[15%] items-center">
             <div className="px-5 py-2.5 bg-surface-dark border border-gray-600 rounded-full shadow-lg flex items-center gap-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
@@ -294,7 +266,6 @@ const WorkflowViz = () => (
             </div>
         </div>
 
-        {/* Middle: Agent Core (Larger) */}
         <div className="flex justify-center z-10 h-[25%] items-center">
             <div className="w-64 bg-surface-dark/90 backdrop-blur border border-neon-purple rounded-xl shadow-[0_0_25px_rgba(188,19,254,0.15)] p-4 flex flex-col gap-2">
                 <div className="flex items-center justify-between border-b border-neon-purple/30 pb-2">
@@ -306,7 +277,7 @@ const WorkflowViz = () => (
                 </div>
                 <div className="space-y-2">
                     <div className="h-1.5 w-full bg-gray-700 rounded-full overflow-hidden">
-                        <div className="h-full bg-neon-purple w-[60%] animate-[scan_2s_linear_infinite]"></div>
+                        <div className="h-full bg-neon-purple w-[60%]"></div>
                     </div>
                     <div className="flex justify-between text-[10px] text-gray-400 font-mono">
                          <span>Analysis...</span>
@@ -316,9 +287,7 @@ const WorkflowViz = () => (
             </div>
         </div>
 
-        {/* Bottom-Middle: Tools Row */}
         <div className="flex justify-between px-8 z-10 h-[15%] items-center">
-             {/* Tool 1 */}
              <div className="w-32 p-2 bg-surface-dark border border-gray-700 rounded-lg flex flex-col items-center gap-1 shadow-md">
                 <div className="flex items-center gap-1.5 text-gray-400">
                     <Globe size={12} />
@@ -327,7 +296,6 @@ const WorkflowViz = () => (
                 <div className="text-[9px] text-gray-500">Querying...</div>
              </div>
              
-             {/* Tool 2 */}
              <div className="w-32 p-2 bg-surface-dark border border-neon-purple rounded-lg flex flex-col items-center gap-1 shadow-[0_0_15px_rgba(188,19,254,0.2)]">
                 <div className="flex items-center gap-1.5 text-neon-purple">
                     <Code size={12} />
@@ -337,7 +305,6 @@ const WorkflowViz = () => (
              </div>
         </div>
 
-        {/* Bottom: Output */}
         <div className="flex justify-center z-10 h-[15%] items-end">
             <div className="w-full max-w-sm px-4 py-3 bg-gradient-to-r from-neon-purple/10 to-transparent border-l-2 border-neon-purple flex items-center gap-3">
                 <FileText size={18} className="text-neon-purple" />
@@ -349,7 +316,6 @@ const WorkflowViz = () => (
         </div>
     </div>
 
-    {/* Right Side: Log Panel (Full Height) */}
     <div className="w-1/4 border-l border-white/10 bg-black/40 p-0 flex flex-col font-mono text-[10px]">
         <div className="p-3 border-b border-white/10 bg-white/5 font-bold text-gray-400 flex items-center gap-2">
             <Terminal size={12} /> TRACE_LOG
@@ -372,24 +338,20 @@ const WorkflowViz = () => (
                 print(df.sum())
             </div>
             <div className="text-green-500">[SYS] Output generated.</div>
-            
-            {/* Fade out bottom */}
             <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black to-transparent"></div>
         </div>
     </div>
   </div>
 );
 
-// Phase 4: Security Shield (Refined Layout)
+// Phase 4: Security Shield
 const SecurityViz = () => (
   <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col">
-     {/* Radar Background - Full Coverage */}
      <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] aspect-square border border-green-900/20 rounded-full animate-spin-slow"></div>
      </div>
 
-     {/* Top Bar */}
      <div className="relative z-10 h-12 border-b border-green-900/30 flex items-center justify-between px-6 bg-black/40 backdrop-blur-sm">
          <div className="flex items-center gap-2 text-green-500">
              <ShieldAlert size={16} />
@@ -403,10 +365,7 @@ const SecurityViz = () => (
          </div>
      </div>
 
-     {/* Main Content Grid */}
      <div className="flex-1 relative z-10 p-6 grid grid-cols-3 grid-rows-2 gap-4">
-         
-         {/* Left Panel: Threat Detection */}
          <div className="col-span-1 row-span-2 bg-green-900/5 border border-green-500/10 rounded-xl p-4 flex flex-col gap-4">
              <div className="flex items-center gap-2 border-b border-green-500/20 pb-2">
                  <AlertTriangle size={14} className="text-green-400" />
@@ -427,25 +386,18 @@ const SecurityViz = () => (
              </div>
          </div>
 
-         {/* Center: Shield (Absolute Centered Visual) */}
          <div className="col-span-1 row-span-2 relative flex items-center justify-center">
              <div className="relative flex items-center justify-center">
-                 {/* Rings */}
-                 <div className="absolute w-48 h-48 border-2 border-dashed border-green-500/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                 <div className="absolute w-48 h-48 border-2 border-dashed border-green-500/20 rounded-full animate-spin-slow"></div>
                  <div className="absolute w-40 h-40 border border-green-500/30 rounded-full"></div>
-                 
-                 {/* Core */}
                  <div className="w-28 h-28 bg-black border border-green-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] rounded-full flex flex-col items-center justify-center z-20">
                      <Lock size={32} className="text-green-400 mb-1" />
                      <span className="text-[10px] text-white font-bold">SECURE</span>
                  </div>
-
-                 {/* Beam */}
-                 <div className="absolute top-1/2 left-1/2 w-40 h-40 -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(34,197,94,0.15)_360deg)] animate-[spin_3s_linear_infinite] rounded-full pointer-events-none"></div>
+                 <div className="absolute top-1/2 left-1/2 w-40 h-40 -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(34,197,94,0.15)_360deg)] animate-spin-slow rounded-full pointer-events-none"></div>
              </div>
          </div>
 
-         {/* Right Top: Compliance */}
          <div className="col-span-1 bg-green-900/5 border border-green-500/10 rounded-xl p-4">
               <div className="flex items-center justify-between border-b border-green-500/20 pb-2 mb-3">
                  <span className="text-[10px] font-bold text-green-400">COMPLIANCE</span>
@@ -463,7 +415,6 @@ const SecurityViz = () => (
              </div>
          </div>
 
-         {/* Right Bottom: Data Traffic */}
          <div className="col-span-1 bg-green-900/5 border border-green-500/10 rounded-xl p-4 flex flex-col justify-end">
              <div className="flex items-center gap-2 mb-3">
                  <Globe size={14} className="text-green-400" />
@@ -479,9 +430,7 @@ const SecurityViz = () => (
   </div>
 );
 
-
 const PhaseVisualWrapper = ({ phaseId, color }: { phaseId: number, color: string }) => {
-  // Theme helpers for container styling
   const themeShadow = color === 'purple' ? 'shadow-[0_0_30px_rgba(188,19,254,0.15)]'
     : color === 'blue' ? 'shadow-[0_0_30px_rgba(0,102,255,0.15)]'
     : color === 'green' ? 'shadow-[0_0_30px_rgba(74,222,128,0.15)]'
@@ -494,17 +443,14 @@ const PhaseVisualWrapper = ({ phaseId, color }: { phaseId: number, color: string
 
   return (
     <div className={`relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 ${themeShadow} bg-surface-dark group`}>
-       {/* Corner Accents */}
        <div className={`absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 ${themeBorder} rounded-tl-xl z-20`}></div>
        <div className={`absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 ${themeBorder} rounded-br-xl z-20`}></div>
        
-       {/* Render Specific Viz based on Phase ID */}
        {phaseId === 1 && <NeuralViz />}
        {phaseId === 2 && <ArsenalViz />}
        {phaseId === 3 && <WorkflowViz />}
        {phaseId === 4 && <SecurityViz />}
 
-       {/* Phase Label Overlay */}
        <div className="absolute top-4 right-4 z-30">
           <div className="px-3 py-1 bg-black/60 backdrop-blur border border-white/10 rounded-full text-xs font-mono text-gray-400 border-l-2 border-l-white/50">
              SYS.MOD.0{phaseId}
@@ -517,10 +463,8 @@ const PhaseVisualWrapper = ({ phaseId, color }: { phaseId: number, color: string
 export const CurriculumView: React.FC = () => {
   return (
     <div className="pb-32">
-      {/* Hero */}
       <section className="relative py-24 px-4 text-center border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-tech-950/20"></div>
-        {/* Animated Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,243,255,0.03)_1px,transparent_1px),linear-gradient(rgba(0,243,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
         
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
@@ -539,10 +483,8 @@ export const CurriculumView: React.FC = () => {
         </div>
       </section>
 
-      {/* Main Content List */}
       <div className="container mx-auto px-4 mt-20 space-y-32">
         {phases.map((phase, index) => {
-          // Color mapping for text content
           const themeColorText = phase.color === 'purple' ? 'text-neon-purple' 
             : phase.color === 'blue' ? 'text-neon-blue' 
             : phase.color === 'green' ? 'text-green-400' 
@@ -555,13 +497,11 @@ export const CurriculumView: React.FC = () => {
 
           return (
             <Section key={phase.id} className="relative group">
-              {/* Connector Line for desktop */}
               {index !== phases.length - 1 && (
                 <div className="absolute left-1/2 bottom-[-140px] top-[100%] w-px bg-gradient-to-b from-white/10 to-transparent hidden lg:block"></div>
               )}
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-                 {/* Visual Side (Left) - NOW USING COMPONENT */}
                  <div className="order-1">
                     <PhaseVisualWrapper 
                       phaseId={phase.id} 
@@ -569,7 +509,6 @@ export const CurriculumView: React.FC = () => {
                     />
                  </div>
 
-                 {/* Content Side (Right) */}
                  <div className="space-y-8 order-2">
                     <div>
                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">{phase.title}</h2>
@@ -582,7 +521,6 @@ export const CurriculumView: React.FC = () => {
                        {phase.desc}
                     </p>
 
-                    {/* Highlights Cards */}
                     <div className="grid grid-cols-1 gap-4">
                         <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:border-white/20 transition-colors">
                             <div className="flex items-center gap-2 mb-3 text-yellow-400 font-bold tracking-wider uppercase text-sm">
@@ -602,7 +540,6 @@ export const CurriculumView: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Detail List */}
                     <div className="space-y-5 pt-4">
                        {phase.details.map((detail, i) => (
                           <div key={i} className="flex items-start gap-4">
